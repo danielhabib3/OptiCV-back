@@ -2,6 +2,7 @@ package fr.insa.opticv.opticvback.entity.sections;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import java.util.Date;
@@ -15,7 +16,7 @@ public class Education {
     private String description;
     private String logo;
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     public Education(String title, String school, Date startDate, Date endDate, String description, String logo) {

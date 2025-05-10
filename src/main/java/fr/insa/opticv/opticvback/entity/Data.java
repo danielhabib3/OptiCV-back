@@ -23,7 +23,7 @@ public class Data {
     @OneToMany
     private List<Language> languages;
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     public Data(List<Education> educations, List<Experience> experiences, List<HardSkill> hardSkills, List<SoftSkill> softSkills, List<Project> projects, ContactInfo contactInfo, List<Language> languages) {

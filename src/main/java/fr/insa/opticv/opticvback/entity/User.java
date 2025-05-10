@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "\"app_user\"")
 public class User {
     private String username;
     private String password;
@@ -15,7 +16,7 @@ public class User {
     @JoinColumn(name = "data_id")
     private Data data;
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     public User(String username, String password, String email, List<CV> cvList, Data data) {

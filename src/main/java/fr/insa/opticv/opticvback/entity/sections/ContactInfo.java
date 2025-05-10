@@ -2,6 +2,7 @@ package fr.insa.opticv.opticvback.entity.sections;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
@@ -16,7 +17,7 @@ public class ContactInfo {
     private String photo;
     private String description;
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     public ContactInfo(String name, String email, String phone, String address, String linkedIn, String github, String website, String photo, String description) {

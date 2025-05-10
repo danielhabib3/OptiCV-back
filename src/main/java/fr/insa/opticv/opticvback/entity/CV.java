@@ -23,7 +23,7 @@ public class CV {
     @OneToMany
     private List<Language> languages;
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     public CV(List<Education> educations, List<Experience> experiences, List<HardSkill> hardSkills, List<SoftSkill> softSkills, List<Project> projects, ContactInfo contactInfo, List<Language> languages) {

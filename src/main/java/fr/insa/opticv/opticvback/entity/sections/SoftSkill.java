@@ -2,6 +2,7 @@ package fr.insa.opticv.opticvback.entity.sections;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
@@ -10,7 +11,7 @@ public class SoftSkill {
     private String logo;
     private int level;
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     public SoftSkill(String name, String logo, int level) {

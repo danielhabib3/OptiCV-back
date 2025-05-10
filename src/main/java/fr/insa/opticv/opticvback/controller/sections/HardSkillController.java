@@ -2,11 +2,14 @@ package fr.insa.opticv.opticvback.controller.sections;
 
 import fr.insa.opticv.opticvback.entity.sections.HardSkill;
 import fr.insa.opticv.opticvback.service.sections.HardSkillService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "*")
 @RequestMapping("/api/hard-skills")
 public class HardSkillController {
     private final HardSkillService hardSkillService;
