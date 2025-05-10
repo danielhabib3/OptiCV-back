@@ -1,13 +1,22 @@
-package fr.insa.opticv.opticvback.model;
+package fr.insa.opticv.opticvback.entity;
+
+import jakarta.persistence.*;
 
 import java.util.List;
 
+@Entity
 public class User {
     private String username;
     private String password;
     private String email;
+    @OneToMany
     private List<CV> cvList;
+    @OneToOne
+    @JoinColumn(name = "data_id")
     private Data data;
+    @Id
+    @GeneratedValue
+    private Long id;
 
     public User(String username, String password, String email, List<CV> cvList, Data data) {
         this.username = username;
@@ -15,6 +24,10 @@ public class User {
         this.email = email;
         this.cvList = cvList;
         this.data = data;
+    }
+
+    public User() {
+
     }
 
     public String getUsername() {
@@ -57,4 +70,11 @@ public class User {
         this.data = data;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
 }

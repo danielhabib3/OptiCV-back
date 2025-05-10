@@ -1,5 +1,10 @@
-package fr.insa.opticv.opticvback.model.sections;
+package fr.insa.opticv.opticvback.entity.sections;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity
 public class ContactInfo {
     private String name;
     private String email;
@@ -10,6 +15,9 @@ public class ContactInfo {
     private String website;
     private String photo;
     private String description;
+    @Id
+    @GeneratedValue
+    private Long id;
 
     public ContactInfo(String name, String email, String phone, String address, String linkedIn, String github, String website, String photo, String description) {
         this.name = name;
@@ -21,6 +29,10 @@ public class ContactInfo {
         this.website = website;
         this.photo = photo;
         this.description = description;
+    }
+
+    public ContactInfo() {
+
     }
 
     public String getName() {
@@ -96,4 +108,11 @@ public class ContactInfo {
     }
 
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
 }

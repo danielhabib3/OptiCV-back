@@ -1,19 +1,32 @@
-package fr.insa.opticv.opticvback.model;
+package fr.insa.opticv.opticvback.entity;
 
-import fr.insa.opticv.opticvback.model.sections.*;
+import fr.insa.opticv.opticvback.entity.sections.*;
+import jakarta.persistence.*;
 
 import java.util.List;
 
-public class Data {
+@Entity
+public class CV {
+    @OneToMany
     private List<Education> educations;
+    @OneToMany
     private List<Experience> experiences;
+    @OneToMany
     private List<HardSkill> hardSkills;
+    @OneToMany
     private List<SoftSkill> softSkills;
+    @OneToMany
     private List<Project> projects;
+    @ManyToOne
+    @JoinColumn(name = "contact_info_id")
     private ContactInfo contactInfo;
+    @OneToMany
     private List<Language> languages;
+    @Id
+    @GeneratedValue
+    private Long id;
 
-    public Data(List<Education> educations, List<Experience> experiences, List<HardSkill> hardSkills, List<SoftSkill> softSkills, List<Project> projects, ContactInfo contactInfo, List<Language> languages) {
+    public CV(List<Education> educations, List<Experience> experiences, List<HardSkill> hardSkills, List<SoftSkill> softSkills, List<Project> projects, ContactInfo contactInfo, List<Language> languages) {
         this.educations = educations;
         this.experiences = experiences;
         this.hardSkills = hardSkills;
@@ -23,8 +36,16 @@ public class Data {
         this.languages = languages;
     }
 
+    public CV() {
+
+    }
+
     public List<Education> getEducations() {
         return educations;
+    }
+
+    public void setEducations(List<Education> educations) {
+        this.educations = educations;
     }
 
     public List<Language> getLanguages() {
@@ -35,8 +56,12 @@ public class Data {
         this.languages = languages;
     }
 
-    public void setEducations(List<Education> educations) {
-        this.educations = educations;
+    public ContactInfo getContactInfo() {
+        return contactInfo;
+    }
+
+    public void setContactInfo(ContactInfo contactInfo) {
+        this.contactInfo = contactInfo;
     }
 
     public List<Experience> getExperiences() {
@@ -71,12 +96,11 @@ public class Data {
         this.projects = projects;
     }
 
-    public ContactInfo getContactInfo() {
-        return contactInfo;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setContactInfo(ContactInfo contactInfo) {
-        this.contactInfo = contactInfo;
+    public Long getId() {
+        return id;
     }
-
 }

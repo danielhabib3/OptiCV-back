@@ -1,14 +1,26 @@
-package fr.insa.opticv.opticvback.model.sections;
+package fr.insa.opticv.opticvback.entity.sections;
 
-public class SoftSkill {
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity
+public class HardSkill {
     private String name;
     private String logo;
     private int level;
+    @Id
+    @GeneratedValue
+    private Long id;
 
-    public SoftSkill(String name, String logo, int level) {
+    public HardSkill(String name, String logo, int level) {
         this.name = name;
         this.logo = logo;
         this.level = level;
+    }
+
+    public HardSkill() {
+
     }
 
     public String getName() {
@@ -33,5 +45,13 @@ public class SoftSkill {
 
     public void setLevel(int level) {
         this.level = level;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 }

@@ -1,7 +1,12 @@
-package fr.insa.opticv.opticvback.model.sections;
+package fr.insa.opticv.opticvback.entity.sections;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
 import java.util.Date;
 
+@Entity
 public class Experience {
     private String title;
     private String company;
@@ -9,6 +14,9 @@ public class Experience {
     private Date endDate;
     private String description;
     private String logo;
+    @Id
+    @GeneratedValue
+    private Long id;
 
     public Experience(String title, String company, Date startDate, Date endDate, String description, String logo) {
         this.title = title;
@@ -17,6 +25,10 @@ public class Experience {
         this.endDate = endDate;
         this.description = description;
         this.logo = logo;
+    }
+
+    public Experience() {
+
     }
 
     public String getTitle() {
@@ -65,5 +77,13 @@ public class Experience {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 }

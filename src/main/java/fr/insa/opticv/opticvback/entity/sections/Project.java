@@ -1,16 +1,29 @@
-package fr.insa.opticv.opticvback.model.sections;
+package fr.insa.opticv.opticvback.entity.sections;
 
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity
 public class Project {
     private String title;
     private String description;
     private String logo;
     private String link;
+    @Id
+    @GeneratedValue
+    private Long id;
 
     public Project(String title, String description, String logo, String link) {
         this.title = title;
         this.description = description;
         this.logo = logo;
         this.link = link;
+    }
+
+    public Project() {
+
     }
 
     public String getTitle() {
@@ -43,5 +56,13 @@ public class Project {
 
     public void setLink(String link) {
         this.link = link;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 }
